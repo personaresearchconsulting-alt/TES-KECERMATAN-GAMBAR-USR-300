@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>PORTAL TES KECERMATAN - Persona Research</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0b2340;
+            --gold: #d4a017;
+            --gray: #f8fafc;
+            --danger: #e11d48;
+        }
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background: #e2e8f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .login-card {
+            background: #fff;
+            width: 100%;
+            max-width: 400px;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-top: 8px solid var(--navy);
+        }
+        .logo-area h1 {
+            font-size: 20px;
+            color: var(--navy);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .logo-area p {
+            font-size: 13px;
+            color: #64748b;
+            margin-bottom: 30px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            box-sizing: border-box;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: 0.3s;
+        }
+        input:focus {
+            border-color: var(--navy);
+        }
+        .btn-enter {
+            width: 100%;
+            background: var(--navy);
+            color: #fff;
+            border: none;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-enter:hover {
+            background: #1a3a5f;
+            transform: translateY(-2px);
+        }
+        .info-box {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px dashed #cbd5e1;
+        }
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            margin-bottom: 8px;
+            color: #475569;
+        }
+        .status-tag {
+            background: #fee2e2;
+            color: var(--danger);
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+        .error-msg {
+            color: var(--danger);
+            font-size: 13px;
+            margin-bottom: 15px;
+            display: none;
+        }
+        .menu-list {
+            display: none; /* Hidden until login */
+            margin-top: 20px;
+        }
+        .menu-btn {
+            display: block;
+            background: var(--gray);
+            color: var(--navy);
+            text-decoration: none;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            font-weight: 600;
+            border: 1px solid #e2e8f0;
+            transition: 0.2s;
+        }
+        .menu-btn:hover {
+            background: var(--gold);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-card">
+    <div class="logo-area">
+        <h1>Sistem Simulasi CAT</h1>
+        <p>Persona Research & Consulting</p>
+    </div>
+
+    <div id="loginForm">
+        <div class="input-group">
+            <label>Access Password</label>
+            <input type="password" id="passInput" placeholder="Masukkan Password..." autocomplete="off">
+        </div>
+        <div id="errorMsg" class="error-msg">Password Salah! Silahkan hubungi admin.</div>
+        <button class="btn-enter" onclick="checkPass()">MASUK KE SISTEM</button>
+    </div>
+
+    <div id="menuArea" class="menu-list">
+        <p style="font-weight: bold; font-size: 14px; margin-bottom: 15px;">PILIH MODUL SIMULASI:</p>
+        <a href="mono_4.html" class="menu-btn">1. Tes Kecermatan (Simbol)</a>
+        <a href="mono_7fix.html" class="menu-btn">2. Tes Kecermatan (Gambar/Alutsista)</a>
+    </div>
+
+    <div class="info-box">
+        <div class="info-item">
+            <span>Masa Aktif:</span>
+            <span class="status-tag">Expired in 7 Days</span>
+        </div>
+        <div class="info-item">
+            <span>Limit Device:</span>
+            <span>Max 3 Devices</span>
+        </div>
+    </div>
+</div>
+
+<script>
+    function checkPass() {
+        const pass = document.getElementById('passInput').value;
+        const error = document.getElementById('errorMsg');
+        const loginForm = document.getElementById('loginForm');
+        const menuArea = document.getElementById('menuArea');
+
+        // Validasi Password sesuai request
+        if(pass === "unke16") {
+            loginForm.style.display = "none";
+            menuArea.style.display = "block";
+        } else {
+            error.style.display = "block";
+            document.getElementById('passInput').value = "";
+        }
+    }
+
+    // Memungkinkan tekan Enter untuk login
+    document.getElementById('passInput').addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            checkPass();
+        }
+    });
+</script>
+
+</body>
+</html>
